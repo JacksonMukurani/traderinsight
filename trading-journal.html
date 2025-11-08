@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Journal - TraderInsight</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 0.5rem 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .breadcrumb {
+            background: #e9ecef;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #1e3c72;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            color: #666;
+        }
+        .journal-container {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .download-section {
+            background: #e3f2fd;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .download-btn {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .template-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        .back-button {
+            background: #6c757d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .benefits {
+            background: #e8f5e8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>TraderInsight</h1>
+            <p>Educate • Inform • Empower Traders</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search articles...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <a href="tools.html">Trading Tools</a> > <span>Trading Journal</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Back to Previous Page</a>
+
+        <div class="journal-container">
+            <h1>📓 Trading Journal</h1>
+            <p>Track your trades, analyze performance, and improve your strategy. "What gets measured gets managed."</p>
+            
+            <div class="benefits">
+                <h3>🎯 Why Keep a Trading Journal?</h3>
+                <ul>
+                    <li>Identify winning vs losing patterns</li>
+                    <li>Improve discipline and consistency</li>
+                    <li>Track emotional triggers</li>
+                    <li>Measure strategy performance</li>
+                    <li>Accelerate learning curve</li>
+                </ul>
+            </div>
+
+            <div class="download-section">
+                <h3>📥 Download Free Trading Journal Templates</h3>
+                <p>Choose the format that works best for you:</p>
+                
+                <a href="#" class="download-btn" onclick="alert('Excel template download coming soon!')">
+                    📊 Excel Template
+                </a>
+                <a href="#" class="download-btn" onclick="alert('PDF template download coming soon!')">
+                    📄 PDF Printable
+                </a>
+                <a href="#" class="download-btn" onclick="alert('Google Sheets template coming soon!')">
+                    ☁️ Google Sheets
+                </a>
+                
+                <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                    Enter your email to get templates delivered + weekly trading tips
+                </p>
+                
+                <div style="margin: 1rem 0;">
+                    <input type="email" placeholder="Your email address" style="padding: 0.75rem; width: 300px; max-width: 100%; border: 2px solid #ddd; border-radius: 4px;">
+                    <button style="padding: 0.75rem 1.5rem; background: #1e3c72; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 0.5rem;">
+                        Get Templates
+                    </button>
+                </div>
+            </div>
+
+            <div class="template-grid">
+                <div class="template-card">
+                    <h4>📈 Basic Trade Logger</h4>
+                    <p>Simple template for beginners:</p>
+                    <ul>
+                        <li>Entry/Exit prices</li>
+                        <li>Position size</li>
+                        <li>Profit/Loss</li>
+                        <li>Trade date</li>
+                    </ul>
+                </div>
+                
+                <div class="template-card">
+                    <h4>🎯 Advanced Performance Tracker</h4>
+                    <p>For serious traders:</p>
+                    <ul>
+                        <li>Win rate analysis</li>
+                        <li>Risk-reward ratios</li>
+                        <li>Strategy performance</li>
+                        <li>Emotional state tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="template-card">
+                    <h4>📊 Monthly Review Template</h4>
+                    <p>End-of-month analysis:</p>
+                    <ul>
+                        <li>Performance summary</li>
+                        <li>Lessons learned</li>
+                        <li>Next month goals</li>
+                        <li>Strategy adjustments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                <h3>💡 How to Use Your Trading Journal Effectively</h3>
+                <ol style="margin: 1rem 0 1rem 2rem;">
+                    <li><strong>Record EVERY trade</strong> - no exceptions</li>
+                    <li><strong>Review weekly</strong> - spot patterns</li>
+                    <li><strong>Be honest</strong> - include emotions and mistakes</li>
+                    <li><strong>Set improvement goals</strong> based on data</li>
+                    <li><strong>Compare monthly results</strong> to track progress</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TraderInsight. Educational content only. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>
