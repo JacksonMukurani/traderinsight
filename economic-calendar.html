@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Calendar - TraderInsight</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 0.5rem 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .breadcrumb {
+            background: #e9ecef;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #1e3c72;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            color: #666;
+        }
+        .calendar-container {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .calendar-widget {
+            background: #f8f9fa;
+            border: 2px dashed #ccc;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        .manual-events {
+            margin: 2rem 0;
+        }
+        .event-item {
+            background: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2196f3;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .event-high {
+            border-left-color: #f44336;
+            background: #ffebee;
+        }
+        .event-medium {
+            border-left-color: #ff9800;
+            background: #fff3e0;
+        }
+        .back-button {
+            background: #6c757d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .importance {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+        .high { background: #f44336; color: white; }
+        .medium { background: #ff9800; color: white; }
+        .low { background: #4caf50; color: white; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>TraderInsight</h1>
+            <p>Educate • Inform • Empower Traders</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search articles...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <a href="tools.html">Trading Tools</a> > <span>Economic Calendar</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Back to Previous Page</a>
+
+        <div class="calendar-container">
+            <h1>📅 Economic Calendar</h1>
+            <p>Track important market-moving events. High-impact events can cause significant volatility.</p>
+            
+            <div class="calendar-widget">
+                <h3>📊 Live Economic Calendar</h3>
+                <p><strong>To add live calendar:</strong> Embed free widget from TradingView or ForexFactory</p>
+                <p style="color: #666; margin: 1rem 0;">[Live calendar will be embedded here]</p>
+                <a href="https://www.tradingview.com/economic-calendar/" target="_blank" style="color: #1e3c72; text-decoration: none;">
+                    🔗 View Live Calendar on TradingView →
+                </a>
+            </div>
+
+            <div class="manual-events">
+                <h3>🗓️ Upcoming High-Impact Events</h3>
+                
+                <div class="event-item event-high">
+                    <strong>US Non-Farm Payroll (NFP)</strong>
+                    <span class="importance high">High Impact</span>
+                    <div>First Friday of each month | 8:30 AM EST</div>
+                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                        Affects: USD, Stock Markets, Gold
+                    </div>
+                </div>
+
+                <div class="event-item event-high">
+                    <strong>CPI Inflation Data (US)</strong>
+                    <span class="importance high">High Impact</span>
+                    <div>Monthly around 13th | 8:30 AM EST</div>
+                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                        Affects: USD, Bonds, Federal Reserve Policy
+                    </div>
+                </div>
+
+                <div class="event-item event-medium">
+                    <strong>Federal Reserve Meeting</strong>
+                    <span class="importance medium">Medium Impact</span>
+                    <div>Every 6 weeks | 2:00 PM EST</div>
+                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                        Affects: All USD pairs, Interest Rates
+                    </div>
+                </div>
+
+                <div class="event-item event-medium">
+                    <strong>ECB Interest Rate Decision</strong>
+                    <span class="importance medium">Medium Impact</span>
+                    <div>Monthly | 7:45 AM EST</div>
+                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                        Affects: EUR pairs, European stocks
+                    </div>
+                </div>
+
+                <div class="event-item event-low">
+                    <strong>Retail Sales Data</strong>
+                    <span class="importance low">Low Impact</span>
+                    <div>Monthly around 15th | 8:30 AM EST</div>
+                    <div style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">
+                        Affects: USD, Consumer stocks
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+                <h3>💡 How to Trade Economic Events</h3>
+                <ul style="margin: 1rem 0 1rem 2rem;">
+                    <li><strong>High Impact:</strong> Reduce position size, use wider stops</li>
+                    <li><strong>Medium Impact:</strong> Be cautious around release times</li>
+                    <li><strong>Low Impact:</strong> Usually safe to trade through</li>
+                    <li>Wait 5-15 minutes after news release for volatility to settle</li>
+                    <li>Always check consensus forecasts vs actual results</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TraderInsight. Educational content only. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Add upcoming events dynamically
+        function updateEvents() {
+            const events = [
+                { name: "US NFP", date: "First Friday", time: "8:30 AM EST", impact: "high" },
+                { name: "CPI Data", date: "Monthly ~13th", time: "8:30 AM EST", impact: "high" },
+                { name: "Fed Meeting", date: "Every 6 weeks", time: "2:00 PM EST", impact: "medium" }
+            ];
+            
+            // Could add more dynamic features here
+        }
+        
+        updateEvents();
+    </script>
+</body>
+</html>
