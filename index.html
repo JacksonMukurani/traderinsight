@@ -26,12 +26,33 @@
         nav {
             background: #2c3e50;
             padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        nav a {
+        .nav-links a {
             color: white;
             text-decoration: none;
             margin: 0 1rem;
             font-weight: bold;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 0.5rem 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
         .hero {
             text-align: center;
@@ -86,6 +107,19 @@
             font-weight: bold;
             color: #1e3c72;
         }
+        .learning-path {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .path-step {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid #1e3c72;
+        }
         .footer {
             background: #2c3e50;
             color: white;
@@ -104,10 +138,16 @@
     </header>
 
     <nav>
-        <div class="container">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="disclaimer.html">Disclaimer</a>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search articles...">
+                <button onclick="searchArticles()">Search</button>
+            </div>
         </div>
     </nav>
 
@@ -121,6 +161,23 @@
             <div class="stat-number">2</div>
             <p>Professional Trading Guides Published</p>
         </div>
+
+        <section class="learning-path">
+            <h2>Start Your Trading Journey</h2>
+            <div class="path-step">
+                <h3>📚 Step 1: Learn the Basics</h3>
+                <p>Understanding bid/ask, spreads, and order types</p>
+                <p class="coming-soon">Coming Next: Trading Fundamentals</p>
+            </div>
+            <div class="path-step">
+                <h3>🛡️ Step 2: Master Risk Management</h3>
+                <p><a href="risk-management-basics.html" class="read-link">Read: Risk Management Basics →</a></p>
+            </div>
+            <div class="path-step">
+                <h3>📈 Step 3: Analyze Markets</h3>
+                <p><a href="nfp-trading-guide.html" class="read-link">Read: NFP Trading Guide →</a></p>
+            </div>
+        </section>
 
         <section class="articles">
             <div class="article-card">
@@ -147,5 +204,36 @@
             <p>Live at: https://jackson9323.github.io/traderinsight/</p>
         </div>
     </footer>
+
+    <script>
+        function searchArticles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            // Simple search logic - matches article titles
+            const articles = {
+                'nfp': 'nfp-trading-guide.html',
+                'non farm payroll': 'nfp-trading-guide.html',
+                'risk': 'risk-management-basics.html',
+                'risk management': 'risk-management-basics.html',
+                'management': 'risk-management-basics.html',
+                'about': 'about.html',
+                'disclaimer': 'disclaimer.html',
+                'home': 'index.html'
+            };
+            
+            if (articles[searchTerm]) {
+                window.location.href = articles[searchTerm];
+            } else {
+                alert('Article not found. Try: "nfp", "risk", "about"');
+            }
+        }
+        
+        // Allow pressing Enter to search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchArticles();
+            }
+        });
+    </script>
 </body>
 </html>
