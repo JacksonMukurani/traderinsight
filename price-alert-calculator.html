@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Alert Calculator - TraderInsight</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            background: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background: #2c3e50;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .search-box input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .search-box button {
+            padding: 0.5rem 1rem;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .breadcrumb {
+            background: #e9ecef;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .breadcrumb a {
+            color: #1e3c72;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            color: #666;
+        }
+        .calculator {
+            background: white;
+            padding: 3rem;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin: 1.5rem 0;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .input-group input:focus {
+            border-color: #1e3c72;
+            outline: none;
+        }
+        .calculate-btn {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .results {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            display: none;
+        }
+        .result-item {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        .result-value {
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        .back-button {
+            background: #6c757d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>TraderInsight</h1>
+            <p>Educate • Inform • Empower Traders</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="disclaimer.html">Disclaimer</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search articles...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> > <a href="tools.html">Trading Tools</a> > <span>Price Alert Calculator</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">← Back to Previous Page</a>
+
+        <div class="calculator">
+            <h1>Price Alert Calculator</h1>
+            <p>Calculate distance to your target price and set mental alerts for your trades.</p>
+            
+            <div class="input-group">
+                <label for="currentPrice">Current Price:</label>
+                <input type="number" id="currentPrice" placeholder="e.g., 1.2050" step="0.0001">
+            </div>
+            
+            <div class="input-group">
+                <label for="targetPrice">Target Price:</label>
+                <input type="number" id="targetPrice" placeholder="e.g., 1.2150" step="0.0001">
+            </div>
+            
+            <div class="input-group">
+                <label for="instrument">Instrument Type:</label>
+                <select id="instrument" style="width: 100%; padding: 0.75rem; border: 2px solid #ddd; border-radius: 4px;">
+                    <option value="forex">Forex (4 decimal places)</option>
+                    <option value="stocks">Stocks (2 decimal places)</option>
+                    <option value="crypto">Cryptocurrency (2 decimal places)</option>
+                    <option value="indices">Indices (1 decimal place)</option>
+                </select>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateAlert()">Calculate Price Alert</button>
+
+            <div class="results" id="results">
+                <h3>📊 Alert Calculation Results:</h3>
+                <div class="result-item">Distance: <span class="result-value" id="distance">-</span></div>
+                <div class="result-item">Distance in Pips/Points: <span class="result-value" id="pips">-</span></div>
+                <div class="result-item">Percentage Move: <span class="result-value" id="percentage">-</span></div>
+                <div class="result-item">Price Needs to: <span class="result-value" id="direction">-</span></div>
+                
+                <div style="margin-top: 1.5rem; padding: 1rem; background: #fff3cd; border-radius: 4px;">
+                    <strong>💡 Trading Tip:</strong> 
+                    <span id="tradingTip">Set mental alerts at key support/resistance levels</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TraderInsight. Educational content only. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateAlert() {
+            const currentPrice = parseFloat(document.getElementById('currentPrice').value);
+            const targetPrice = parseFloat(document.getElementById('targetPrice').value);
+            const instrument = document.getElementById('instrument').value;
+            
+            if (!currentPrice || !targetPrice) {
+                alert('Please enter both current and target prices');
+                return;
+            }
+
+            const distance = targetPrice - currentPrice;
+            const percentage = ((distance / currentPrice) * 100).toFixed(2);
+            
+            let pips;
+            switch(instrument) {
+                case 'forex':
+                    pips = (distance * 10000).toFixed(1);
+                    break;
+                case 'stocks':
+                    pips = (distance * 100).toFixed(1);
+                    break;
+                case 'crypto':
+                    pips = (distance * 100).toFixed(1);
+                    break;
+                case 'indices':
+                    pips = (distance * 10).toFixed(1);
+                    break;
+            }
+
+            document.getElementById('distance').textContent = distance.toFixed(4);
+            document.getElementById('pips').textContent = pips + (instrument === 'forex' ? ' pips' : ' points');
+            document.getElementById('percentage').textContent = percentage + '%';
+            document.getElementById('direction').textContent = distance > 0 ? 'RISE 📈' : 'FALL 📉';
+
+            // Trading tip based on calculation
+            let tip = '';
+            if (Math.abs(percentage) > 5) {
+                tip = 'Large price move expected. Consider smaller position size.';
+            } else if (Math.abs(percentage) < 1) {
+                tip = 'Small price move. Good for scalp trading strategies.';
+            } else {
+                tip = 'Moderate price move. Ideal for swing trading positions.';
+            }
+            document.getElementById('tradingTip').textContent = tip;
+
+            // Show results
+            document.getElementById('results').style.display = 'block';
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Allow Enter key in input fields
+        document.getElementById('targetPrice').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateAlert();
+            }
+        });
+    </script>
+</body>
+</html>
