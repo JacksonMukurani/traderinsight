@@ -3,252 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TraderInsight - Trading Education Hub</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Arial', sans-serif; 
-            line-height: 1.6; 
-            color: #333;
-            background: #f8f9fa;
-        }
-        .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        nav {
-            background: #2c3e50;
-            padding: 1rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
-        .search-box {
-            display: flex;
-            gap: 0.5rem;
-            position: relative;
-        }
-        .search-box input {
-            padding: 0.5rem;
-            border: none;
-            border-radius: 4px;
-            width: 250px;
-        }
-        .search-box button {
-            padding: 0.5rem 1rem;
-            background: #1e3c72;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .breadcrumb {
-            background: #e9ecef;
-            padding: 1rem 0;
-            font-size: 0.9rem;
-        }
-        .breadcrumb a {
-            color: #1e3c72;
-            text-decoration: none;
-        }
-        .breadcrumb span {
-            color: #666;
-        }
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            background: white;
-            margin: 2rem auto;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .articles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .article-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .article-card:hover {
-            transform: translateY(-5px);
-        }
-        .article-card h3 {
-            color: #1e3c72;
-            margin-bottom: 1rem;
-        }
-        .read-link {
-            color: #1e3c72;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-        .coming-soon {
-            color: #666;
-            font-style: italic;
-            margin-top: 1rem;
-        }
-        .stats {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #1e3c72;
-        }
-        .learning-path {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .path-step {
-            margin: 1rem 0;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-left: 4px solid #1e3c72;
-        }
-        .back-button {
-            background: #6c757d;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-    </style>
+    <title>TraderInsight - Professional Trading Education</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header class="header">
+    <!-- Header -->
+    <header class="site-header">
         <div class="container">
-            <h1>TraderInsight</h1>
-            <p>Educate • Inform • Empower Traders</p>
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">TraderInsight</a></h1>
+                    <span class="tagline">Professional Trading Education</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="tools/index.html">Trading Tools</a>
+                    <a href="education/index.html">Education</a>
+                    <a href="analysis.html">Market Analysis</a>
+                    <a href="resources.html">Resources</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <nav>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="disclaimer.html">Disclaimer</a>
-            </div>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search articles...">
-                <button onclick="performSearch()">Search</button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="breadcrumb">
-        <div class="container">
-            <a href="index.html">Home</a>
-        </div>
-    </div>
-
-    <div class="container">
+    <main class="main-content">
+        <!-- Hero Section -->
         <section class="hero">
-            <h2>Master the Markets with Clear, Actionable Education</h2>
-            <p>Your trusted source for trading knowledge, market insights, and risk management strategies.</p>
-        </section>
-
-        <div class="stats">
-            <div class="stat-number">2</div>
-            <p>Professional Trading Guides Published</p>
-        </div>
-
-        <section class="learning-path">
-            <h2>Start Your Trading Journey</h2>
-            <div class="path-step">
-                <h3>📚 Step 1: Learn the Basics</h3>
-                <p>Understanding bid/ask, spreads, and order types</p>
-                <p class="coming-soon">Coming Next: Trading Fundamentals</p>
-            </div>
-            <div class="path-step">
-                <h3>🛡️ Step 2: Master Risk Management</h3>
-                <p><a href="risk-management-basics.html" class="read-link">Read: Risk Management Basics →</a></p>
-            </div>
-            <div class="path-step">
-                <h3>📈 Step 3: Analyze Markets</h3>
-                <p><a href="nfp-trading-guide.html" class="read-link">Read: NFP Trading Guide →</a></p>
+            <div class="container">
+                <h1>Master the Markets with Professional-Grade Tools</h1>
+                <p>Advanced trading calculators, real-time market analysis, and comprehensive educational resources for serious traders.</p>
+                <a href="tools/index.html" class="btn btn-primary">Explore Trading Tools</a>
             </div>
         </section>
 
-        <section class="articles">
-            <div class="article-card">
-                <h3><a href="nfp-trading-guide.html" style="color: inherit; text-decoration: none;">NFP Trading Guide: Master Non-Farm Payroll</a></h3>
-                <p>Learn how to trade the most important economic report that moves currency markets every month.</p>
-                <a href="nfp-trading-guide.html" class="read-link">Read Guide →</a>
-            </div>
-            <div class="article-card">
-                <h3><a href="risk-management-basics.html" style="color: inherit; text-decoration: none;">Risk Management Basics</a></h3>
-                <p>Protect your capital with proven risk management strategies used by professional traders.</p>
-                <a href="risk-management-basics.html" class="read-link">Read Guide →</a>
-            </div>
-            <div class="article-card">
-                <h3>Trading Psychology Guide</h3>
-                <p>Master your emotions and develop the mindset of successful traders.</p>
-                <p class="coming-soon">Coming Next Week</p>
+        <!-- Features Grid -->
+        <section class="container" style="padding: var(--space-xl) 0;">
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Advanced Calculators</h3>
+                    <p>Professional-grade trading calculators for position sizing, risk management, and market analysis.</p>
+                    <a href="tools/position-calculator.html" class="btn btn-outline">View Calculators</a>
+                </div>
+                <div class="card">
+                    <h3>Real-Time Data</h3>
+                    <p>Live market sessions, economic calendars, and volatility indicators updated in real-time.</p>
+                    <a href="tools/trading-sessions.html" class="btn btn-outline">View Market Data</a>
+                </div>
+                <div class="card">
+                    <h3>Educational Resources</h3>
+                    <p>Comprehensive guides on risk management, trading psychology, and market analysis techniques.</p>
+                    <a href="education/index.html" class="btn btn-outline">Learn More</a>
+                </div>
             </div>
         </section>
-    </div>
 
-    <footer class="footer">
+        <!-- Tools Preview -->
+        <section class="container" style="padding-bottom: var(--space-xl);">
+            <h2 style="text-align: center; margin-bottom: var(--space-lg);">Featured Trading Tools</h2>
+            <div class="tools-grid">
+                <a href="tools/position-calculator.html" class="tool-card">
+                    <h3>Position Size Calculator</h3>
+                    <p>Calculate optimal trade size based on your risk management rules and account parameters.</p>
+                    <div class="tool-features">
+                        <ul>
+                            <li>Account size optimization</li>
+                            <li>Risk percentage calculation</li>
+                            <li>Lot size conversion</li>
+                        </ul>
+                    </div>
+                    <div class="btn btn-primary">Access Calculator</div>
+                </a>
+
+                <a href="tools/trading-sessions.html" class="tool-card">
+                    <h3>Live Trading Sessions</h3>
+                    <p>Real-time global market hours with session overlap detection and volatility indicators.</p>
+                    <div class="tool-features">
+                        <ul>
+                            <li>Live clock for all major sessions</li>
+                            <li>Volatility level indicators</li>
+                            <li>Session overlap detection</li>
+                        </ul>
+                    </div>
+                    <div class="btn btn-primary">View Sessions</div>
+                </a>
+
+                <a href="tools/economic-calendar.html" class="tool-card">
+                    <h3>Economic Calendar</h3>
+                    <p>Track high-impact market events and economic releases that move the markets.</p>
+                    <div class="tool-features">
+                        <ul>
+                            <li>High-impact event tracking</li>
+                            <li>Volatility forecasting</li>
+                            <li>Real-time updates</li>
+                        </ul>
+                    </div>
+                    <div class="btn btn-primary">View Calendar</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 TraderInsight. Educational content only. Not financial advice.</p>
-            <p>Live at: https://jackson9323.github.io/traderinsight/</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Trading Tools</h4>
+                    <a href="tools/position-calculator.html">Position Calculator</a>
+                    <a href="tools/trading-sessions.html">Market Sessions</a>
+                    <a href="tools/economic-calendar.html">Economic Calendar</a>
+                    <a href="tools/trading-journal.html">Trading Journal</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Education</h4>
+                    <a href="education/risk-management.html">Risk Management</a>
+                    <a href="education/trading-psychology.html">Trading Psychology</a>
+                    <a href="education/market-analysis.html">Market Analysis</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="disclaimer.html">Disclaimer</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TraderInsight. All rights reserved. Educational content only. Not financial advice.</p>
+                <p>Last updated: January 2025</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            if (query.trim()) {
-                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-            }
-        }
-        
-        // Allow pressing Enter to search
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    </script>
 </body>
 </html>
